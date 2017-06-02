@@ -1,6 +1,7 @@
 class UsuarioController {
 
     constructor(app) {
+        this.app = app;
         this.dao = app.dao.UsuarioDAO;
     }
 
@@ -37,7 +38,7 @@ class UsuarioController {
                 res.format({
                     html:() => {
                         res.status(400)
-                           .render('usuario/cadastro', {validationErros:errors});
+                           .render('usuario/cadastro', {usuario:{}, validationErros:errors});
                     },
                     json:() => {
                         res.status(400)
@@ -51,6 +52,10 @@ class UsuarioController {
 
                 this.dao.atualize(usuario, (err) => {
                     if (err) return next(err);
+
+                    // msg por websocket
+                    this.app.get('io').emit('usuarioAtualizado', usuario);
+
                     res.format({
                         html:() => {
                             res.render('usuario/sucesso', {usuario});
@@ -65,6 +70,10 @@ class UsuarioController {
 
                 this.dao.insira(usuario, (err) => {
                     if (err) return next(err);
+
+                    // msg por websocket
+                    this.app.get('io').emit('usuarioInserido', usuario);
+                    
                     res.format({
                         html:() => {
                             res.render('usuario/sucesso', {usuario});
@@ -81,7 +90,7 @@ class UsuarioController {
     }
 
     remova() {
-        return (req, res) => {
+        return (req, re, next) => {
 
             const id = req.body;
 
@@ -95,7 +104,7 @@ class UsuarioController {
     }
 
     liste() {
-        return (req, res) => {
+        return (req, res, next) => {
             this.dao.liste((err, results) => {
                 if (err) return next(err);
                 res.format({

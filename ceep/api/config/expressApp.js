@@ -5,6 +5,9 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const expressValidator = require('express-validator');
 
+const http = require('http');
+const socketio = require('socket.io');
+
 dotenv.config();
 
 const app = express();
@@ -27,6 +30,7 @@ consign()
 // tratamento de erros
 app.use((err, req, res, next) => {
         if (err) {
+           console.log(err);
            return res.render('error');
         }
         return next();
@@ -36,11 +40,22 @@ app.use((err, req, res, next) => {
 // default handler
 app.use((req, res, next) => {
         res.render('error');
-    });    
+    });  
+
+// configuração de websockets
+const server = http.createServer(app);
+const io = socketio(server);
+app.set('io', io);
+
+io.on('connection', function (socket) {
+  socket.on('okDoCliente', function (data) {
+    console.log("Cliente recebeu mensagem: " + data);
+  });
+});
 
 module.exports = {
     start: function() {
-        app.listen(port, () => {
+        server.listen(port, () => {
             console.log('Servidor iniciado na porta', port)
         });
         return this;
