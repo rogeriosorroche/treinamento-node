@@ -53,11 +53,11 @@ io.on('connection', function (socket) {
   });
 });
 
-module.exports = {
-    start: function() {
-        server.listen(port, () => {
-            console.log('Servidor iniciado na porta', port)
-        });
-        return this;
-    }    
+app.start = function() {
+    server.listen(port, () => {
+        console.log('Servidor iniciado na porta', port)
+    });
+    return this;
 }
+
+module.exports = app;

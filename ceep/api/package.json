@@ -4,9 +4,9 @@
   "description": "Api do projeto CEEP",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "nodemon": "node ./node_modules/nodemon/bin/nodemon.js server",
-    "build": "copy .\\node_modules\\jquery\\dist\\jquery.min.js .\\public\\js"
+    "build": "copy .\\node_modules\\jquery\\dist\\jquery.min.js .\\public\\js",
+    "test": "node ./node_modules/mocha/bin/mocha --recursive ./test"
   },
   "author": "Sorroche",
   "license": "MPL-2.0",
@@ -23,6 +23,8 @@
     "socket.io": "^2.0.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "mocha": "^3.4.2",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0"
   }
 }
