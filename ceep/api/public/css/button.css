@@ -1,0 +1,16 @@
+.button {
+  padding: 10px 20px;
+  color: #ECF0F1;
+  background-color: #34495E;
+  text-decoration: none;
+  display: block;
+  height: auto;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  transition: 200ms background-color linear;
+}
+.button:hover,
+.button:focus {
+  background-color: #2C3E50;
+}

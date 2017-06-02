@@ -1,0 +1,49 @@
+<% include ../partials/header.ejs %>
+
+<main class="container">
+  <h1 class="title">Lista</h1>
+
+  <table class="table">
+    <thead class="table-header">
+      <tr class="table-header-row">
+        <th class="table-header-row-data">Id</th>
+        <th class="table-header-row-data">Nome</th>
+        <th class="table-header-row-data">Email</th>
+        <th class="table-header-row-data">Editar</th>
+        <th class="table-header-row-data">Remover</th>
+      </tr>
+    </thead>
+    <tbody class="table-body">
+      
+      <% for (let usuario of usuarios) { %>
+
+      <tr class="table-body-row">
+        <td class="table-body-row-data table-body-row-data_id">
+          <%= usuario.id %>
+        </td>
+        <td class="table-body-row-data table-body-row-data_name">
+          <%= usuario.nome %>
+        </td>
+        <td class="table-body-row-data table-body-row-data_email">
+          <%= usuario.email %>
+        </td>
+        <td class="table-body-row-data table-body-row-data_edit">
+          <form action="/usuario/<%=usuario.id%>" method="GET">
+            <input type="image" src="/img/editar.svg" alt="Editar"/>
+          </form>
+        </td>
+        <td class="table-body-row-data table-body-row-data_remove">
+          <form action="/usuario" method="_DELETE" data-id="<%=usuario.id%>">
+            <input type="image" src="/img/remover.svg" alt="Remover"/>
+          </form>
+        </td>
+      </tr>
+
+      <% } %>
+
+    </tbody>
+  </table>
+
+</main>
+
+<% include ../partials/footer.ejs %>

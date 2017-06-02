@@ -1,0 +1,10 @@
+form {
+    margin-bottom: 40px;
+}
+
+input {
+    border: 1px solid black;
+    height: 30px;
+    font-size: inherit;
+    display: block;
+}

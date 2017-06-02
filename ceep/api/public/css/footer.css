@@ -1,0 +1,11 @@
+.footer {
+  text-align: center;
+  border-top: 2px solid  #95A5A6;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 40px;
+}
+
+.footer-logo {
+  width: 200px;
+}

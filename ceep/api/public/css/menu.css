@@ -1,0 +1,12 @@
+.wrap-menu {
+  overflow: hidden;
+}
+
+.menu {
+  text-align: right;
+}
+
+.menu-item {
+  display: inline-block;
+  margin-left: 20px;
+}

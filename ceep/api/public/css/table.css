@@ -1,0 +1,27 @@
+.table {
+  width: 100%;
+}
+
+.table-header {
+  background-color: #e67e22;
+  color: #FFF;
+}
+.table-header-row-data {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.table-body-row:nth-child(even) {
+  background-color: #BDC3C7;
+}
+
+.table-body-row-data {
+  text-align: center;
+}
+
+.table-body-row-data_edit img,
+.table-body-row-data_remove img,
+.table-body-row-data_edit input[type="image"],
+.table-body-row-data_remove input[type="image"] {
+  width: 40px;
+}

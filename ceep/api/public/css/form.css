@@ -1,0 +1,27 @@
+.form-label {
+  color: #E67E22;
+  cursor: pointer;
+}
+
+.form-input {
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, .6);
+  height: 40px;
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 25px;
+
+  transition: border 200ms linear;
+}
+.form-input:focus  {
+  border: 2px solid rgba(0, 0, 0, 1);
+}
+
+.form .button {
+  display: block;
+  margin-left: auto;
+  width: 180px;
+}

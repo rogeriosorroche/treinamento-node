@@ -1,0 +1,13 @@
+.header {
+  background-color: #3498DB;
+  margin-bottom: 40px;
+  text-align: justify;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header-logo {
+  color: #ECF0F1;
+  text-decoration: none;
+  float: left;
+}
